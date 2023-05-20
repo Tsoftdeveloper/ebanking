@@ -1,0 +1,40 @@
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    
+    <ion-title class="ion-text-center custom-font">LOGIN</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen="true">
+
+
+  <div class="ion-padding">
+
+    <form (submit) = "validate()">
+      <ion-item lines="none">
+        <ion-input label="Enter your email"  labelPlacement="stacked" type="email" placeholder="Email" [(ngModel)] ="useremail" name="useremail" required="true"></ion-input>
+       
+      </ion-item>
+      <ion-item lines="none">
+        <ion-input label="Enter your password" labelPlacement="stacked" type="password" placeholder="Password" [(ngModel)] ="pwd" name="pwd" required ="true"></ion-input>
+ 
+      </ion-item>
+      <ion-row>
+        <ion-col>
+          <ion-button type="submit" color="tertiary" expand="block">Log In</ion-button>
+         
+        </ion-col>
+      </ion-row>
+    </form>
+
+  </div>
+
+</ion-content>
+
+<ion-footer class="ion-no-border">
+  <ion-toolbar>
+    <p class="ion-text-center custom-font">Don't have an account? <a [routerLink]="['/signup']"> Sign Up</a></p>
+  </ion-toolbar>
+</ion-footer>

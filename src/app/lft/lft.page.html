@@ -1,0 +1,115 @@
+
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button default-href="home"></ion-back-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+  <strong><ion-title size="large">Funds Transfer</ion-title></strong>
+</ion-header>
+
+<ion-content>
+
+  <ion-card class="account-info">
+    <ion-card-header>
+      <ion-card-title>{{this.fullname}}</ion-card-title>
+      <ion-card-subtitle>Your Account</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      <strong>{{this.account}}</strong>
+      <p>Balance: $ {{this.balance}}</p>
+    </ion-card-content>
+  </ion-card>
+  <div class="card">
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-subtitle>Beneficiaries</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-radio-group [(ngModel)]="beneName" (ionChange) = "makeselection()" required="true">
+          <ion-list>
+            <ion-row *ngFor="let user of storedBene"  class="data-row">
+              <ion-item expand="block">
+                <ion-thumbnail slot="start">
+                  <ion-img *ngIf="user.account === 'National Australia Bank'" [src]="'assets/nab.png'"></ion-img>
+                  <ng-container *ngIf="user.account !== 'National Australia Bank'">
+                    <ion-img *ngIf="user.account === 'Commonwealth Bank'" [src]="'assets/cwb.jpg'"></ion-img>
+                    <ion-img *ngIf="user.account === 'ANZ'" [src]="'assets/anz.jpg'"></ion-img>
+                    <ion-img *ngIf="user.account === 'Westpac'" [src]="'assets/westpac.JPG'"></ion-img>
+                  </ng-container>
+                </ion-thumbnail>
+                <ion-label >{{ user.id }}</ion-label>
+                <ion-radio slot="end"  [value]="user.title" aria-label="custom checked"></ion-radio>
+              </ion-item>
+            </ion-row>
+          </ion-list>
+        </ion-radio-group>
+
+      </ion-card-content>
+
+
+      <ion-button id="open-modal" color="tertiary" expand="block">Next </ion-button>
+    </ion-card>
+
+
+    <a style="color:white; text-decoration:none;" [routerLink]="['/add-bene']">
+      <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+        <ion-fab-button color="light">
+          <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+      </ion-fab>
+    </a>
+    
+   
+      <ion-modal #modal trigger="open-modal" [presentingElement] ="presentingElement">
+        <ng-template>
+          <ion-header class="ion-no-border">
+            <ion-toolbar>
+              <ion-title>Payment</ion-title>
+              <ion-buttons slot="end">
+                <ion-button (click)="modal.dismiss()">Close</ion-button>
+              </ion-buttons>
+            </ion-toolbar>
+          </ion-header>
+         
+          <ion-content>
+            <div class="modeldiv">
+              <form (submit) = "this.pay()">
+                <ion-list>
+                  <ion-card style="border-radius: 5px 5px 5px 5px; background: ghostwhite; margin: 20px">
+                    <ion-card-title color="dark">From Account</ion-card-title>
+                    <ion-card-subtitle color="tertiary">{{this.fullname}}</ion-card-subtitle>
+                    <ion-label>{{this.account}} </ion-label>
+                  </ion-card>
+
+                  <ion-card style="border-radius: 5px 5px 5px 5px; background: ghostwhite; margin: 20px">
+                      <ion-card-title color="dark">To Account</ion-card-title>
+                      <ion-card-subtitle color="tertiary">{{this.beneName}}</ion-card-subtitle>
+                      <ion-label>{{this.selectedItem}} </ion-label>
+                    </ion-card>
+
+                  <ion-card style="border-radius: 5px 5px 5px 5px; background: ghostwhite; margin: 20px">
+                    <ion-card-title color="dark">Amount</ion-card-title>
+                    <ion-input type="number" fill="Outlined" name="amount" [(ngModel)] ="amount"></ion-input>
+
+                  </ion-card>
+
+
+                  <ion-button style="margin:20px;" expand="block" color="tertiary" id="paid" type ="submit"> Proceed to Pay</ion-button>
+
+
+                </ion-list>
+              </form>
+            </div>
+          
+
+
+          </ion-content>
+           
+        </ng-template>
+      </ion-modal>
+  </div>
+</ion-content>

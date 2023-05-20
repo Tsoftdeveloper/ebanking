@@ -1,0 +1,40 @@
+ion-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: slateblue;
+  height: 100vh;
+
+  h1, h2 {
+    color: white;
+    font-family: 'Berlin Sans FB';
+    justify-content: center;
+    align-items: center;
+  }
+
+   .headers{
+    margin-top: 300px;
+  }
+
+  .spinner-container {
+    background-color: slateblue;
+    display: flex;
+    flex-direction: column;
+    // justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+
+  .spinner {
+    margin: auto;
+    color: white;
+    width: 200px;
+    padding: 50px;
+    height: 104px;
+  }
+
+  .logo {
+    width: 50px;
+    height: 50%; /* Adjust the size as needed */
+  }
+}

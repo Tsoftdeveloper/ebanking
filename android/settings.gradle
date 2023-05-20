@@ -1,0 +1,20 @@
+//include ':app'
+//include ':capacitor-cordova-android-plugins'
+//include ':capacitor-app'
+//include ':capacitor-android'
+//include ':capacitor-haptics'
+//include ':app',':capacitor-keyboard'
+//include ':capacitor-status-bar'
+include ':app', ':capacitor-cordova-android-plugins'
+project(':capacitor-cordova-android-plugins').projectDir = new File('./capacitor-cordova-android-plugins/')
+//
+//project(':capacitor-haptics').projectDir = new File('./capacitor-haptics/')
+//
+//project(':capacitor-keyboard').projectDir = new File('./capacitor-keyboard/')
+//
+//project(':capacitor-status-bar').projectDir = new File('./capacitor-status-bar/')
+//
+//project(':capacitor-android').projectDir = new File('./capacitor-android/')
+
+apply from: 'capacitor.settings.gradle'
+

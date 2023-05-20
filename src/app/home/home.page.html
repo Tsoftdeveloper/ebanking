@@ -1,0 +1,174 @@
+
+
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+
+    <ion-buttons slot="end">
+
+        <ion-button class="bordered" fill="solid" color="light" (click) ="logout()">
+          <ion-icon color="medium" name="log-out-outline"></ion-icon>
+        </ion-button>
+      
+    </ion-buttons>
+    
+  </ion-toolbar>
+
+	<ion-item lines="none">
+
+		<ion-avatar slot="start">
+			<img src="{{this.profiledp}}">
+    </ion-avatar>
+			<ion-label>
+				<p>Hello,</p>
+        <h3>{{this.fullname}}</h3>
+			</ion-label>
+
+	</ion-item>
+
+</ion-header>
+
+<ion-content fullscreen="true">
+
+  <div class="slides ion-margin-bottom">
+    <swiper-container>
+      <swiper-slide>
+        <ion-card color="light">
+          <ion-card-header>
+            <ion-card-title>$ {{this.balance}}</ion-card-title>
+            <ion-card-subtitle>Total Balance</ion-card-subtitle>
+          </ion-card-header>
+
+          <ion-card-content>
+            Account#  {{this.iban}}
+
+            <p>{{this.currentDateTime}}</p>
+          </ion-card-content>
+          <a style="text-decoration:none;" [routerLink]="['/statement']">
+            <ion-button fill="clear">View Statement</ion-button>
+           </a>
+        </ion-card>
+      </swiper-slide>
+
+      <swiper-slide>
+        <ion-card color="light" class="chartCard">
+          <!-- <ion-img class="pie" src="assets/pie.png"></ion-img> -->
+          <div class="chart-container" style="position: center; ">
+            <canvas id="myChart"></canvas>
+          </div>
+
+          <ion-card-content>
+            Statistics representing transactions in a month
+          </ion-card-content>
+        </ion-card>
+      </swiper-slide>
+
+    </swiper-container>
+  </div>
+
+  <div class="container">
+
+    <h4>Recent Transactions</h4>
+
+    <ion-item lines="none">
+      <ion-grid>
+        <a style="color:white; text-decoration:none;" [routerLink]="['/bills']">
+          <ion-row class="ion-align-items-center">
+            <ion-col size="3">
+              <ion-button color="light" fill="clear">
+                <ion-icon slot="icon-only" name="document"></ion-icon>
+              </ion-button>
+            </ion-col>
+            <ion-col size="7">
+              <ion-label>
+                <h5>Utility Bill Payment</h5>
+                <h6>Date: 26-3-2023 5:30PM</h6>
+              </ion-label>
+            </ion-col>
+            <ion-col size="2">
+              <ion-button color="light" fill="clear">
+                <ion-icon slot="icon-only" name="ellipsis-vertical"></ion-icon>
+              </ion-button>
+            </ion-col>
+          </ion-row>
+        </a>
+      </ion-grid>
+    </ion-item>
+
+   
+
+
+
+   
+
+    
+    </div>
+
+
+  <div class="container">
+    <h4>Menu</h4>
+
+    <ion-item lines="none">
+      <ion-grid>
+        <a style="color:white; text-decoration:none;" [routerLink]="['/add-bene']">
+          <ion-row class="ion-align-items-center">
+            <ion-col size="3">
+              <ion-button color="light" fill="clear">
+                <ion-icon slot="icon-only" name="document"></ion-icon>
+              </ion-button>
+            </ion-col>
+            <ion-col size="7">
+              <ion-label>
+                <h5>Add Beneficiary</h5>
+
+              </ion-label>
+            </ion-col>
+
+          </ion-row>
+        </a>
+      </ion-grid>
+
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-grid>
+        <a style="color:white; text-decoration:none;" [routerLink]="['/lft']">
+          <ion-row class="ion-align-items-center">
+            <ion-col size="3">
+              <ion-button color="light" fill="clear">
+                <ion-icon slot="icon-only" name="logo-paypal"></ion-icon>
+              </ion-button>
+            </ion-col>
+            <ion-col size="7">
+              <ion-label>
+                <h5>Funds Transfer</h5>
+
+              </ion-label>
+            </ion-col>
+          </ion-row>
+        </a>
+      </ion-grid>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-grid>
+        <a style="color:white; text-decoration:none;" [routerLink]="['/map']">
+          <ion-row class="ion-align-items-center">
+            <ion-col size="3">
+              <ion-button color="light" fill="clear">
+                <ion-icon slot="icon-only" name="logo-paypal"></ion-icon>
+              </ion-button>
+            </ion-col>
+            <ion-col size="7">
+              <ion-label>
+                <h5>Maps</h5>
+
+              </ion-label>
+            </ion-col>
+          </ion-row>
+
+        </a>
+      </ion-grid>
+    </ion-item>
+  </div>
+
+</ion-content>

@@ -1,0 +1,43 @@
+ion-content {
+  --background: white;
+}
+
+.account-info {
+  background-color: ghostwhite;
+}
+
+.card {
+    max-height: 100%;
+    min-height: 100%;
+    display: block;
+    padding-bottom: 40px ;
+  background-color: #5260ff;
+  border-radius: 50px 50px 0 0;
+}
+
+ion-card {
+  padding-top: 10px;
+  border-radius: 20px 20px 20px 20px;
+}
+.header-row {
+  font-weight: bold;
+  text-align: center;
+}
+
+.data-row {
+  align-items: center;
+  text-align:center;
+  width: 100%;
+
+}
+
+ion-grid{
+    align-content: center;
+    margin-right: 10px;
+}
+
+.center-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,0 +1,121 @@
+
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button default-href="home"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <strong><ion-title size="large">Add Beneficiary</ion-title></strong>
+</ion-header>
+
+<ion-content>
+
+  <ion-card class="account-info">
+    <ion-card-header>
+      <ion-card-title>{{this.fullname}}</ion-card-title>
+      <ion-card-subtitle>Your Account</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      <strong>{{this.account}}</strong>
+    </ion-card-content>
+  </ion-card>
+  
+
+  <div class="card infinite">
+
+    <ion-card>
+      <ion-item lines="none">
+        <ion-card-subtitle>Add Beneficiary Details</ion-card-subtitle>
+      </ion-item>
+
+      <div class="ion-padding">
+
+        <form>
+          <ion-item lines="full">
+            <ion-label class="my-label" position="stacked">Select Beneficiary Bank: </ion-label>
+   
+              <ion-select [(ngModel)]="beneBank" name="beneBank" aria-labelledby="bankName">
+                <ion-select-option *ngFor="let bank of bankList" [value]="bank">{{bank}} </ion-select-option>
+              </ion-select>
+
+            </ion-item>
+
+          <ion-item lines="none">
+
+            <ion-label position="stacked">Enter Beneficiary Account Number: </ion-label>
+            <ion-input type="text" [(ngModel)]="beneAccount" name="beneAccount" max-length="17" required="true"></ion-input>
+          </ion-item>
+          <ion-item lines="none">
+            <ion-label position="stacked">Account Title: </ion-label>
+            <ion-input type="text" name="beneAccTitle" [(ngModel)]="beneAccTitle"></ion-input>
+          </ion-item>
+          <div class="center-container">
+
+            <ion-button id="added" type="click" color="tertiary" (click)="add()">ADD</ion-button>
+            <ion-button id="delete" type="click" color="danger" (click)="deleteAll()">DELETE ALL</ion-button>
+            <ion-button id="added" type="click" color="primary" (click)="displayAll()">VIEW</ion-button>
+
+
+          </div>
+
+        </form>
+      </div>
+
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-subtitle>Beneficiary List</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-grid>
+          <ion-row class="header-row ">
+            <ion-col size="3">
+
+              <ion-label>Name</ion-label>
+            </ion-col>
+            <ion-col size="3">
+
+
+              <ion-label>Account</ion-label>
+            </ion-col>
+
+            <ion-col size="3">
+
+              <ion-label>Bank</ion-label>
+            </ion-col>
+
+
+          </ion-row>
+            <ion-row *ngFor="let user of storedBene" class="data-row">
+            
+
+                <ion-col size="3">
+
+                  <ion-label>{{ user.id }}</ion-label>
+                </ion-col>
+
+                <ion-col size="3">
+
+                  <ion-label>{{ user.title }}</ion-label>
+                </ion-col>
+
+
+                <ion-col size="3">
+                  <ion-label> {{ user.account }}</ion-label>
+                </ion-col>
+
+
+          </ion-row>
+        </ion-grid>
+
+
+
+
+      </ion-card-content>
+    </ion-card>
+
+  </div>
+
+</ion-content>

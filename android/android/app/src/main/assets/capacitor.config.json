@@ -1,0 +1,8 @@
+{
+	"appId": "com.ebanking.app",
+	"appName": "ebanking",
+	"webDir": "www",
+	"server": {
+		"androidScheme": "https"
+	}
+}

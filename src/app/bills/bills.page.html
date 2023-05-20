@@ -1,0 +1,44 @@
+
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button default-href="home"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <strong><ion-title size="large">Utility Bill Payment</ion-title></strong>
+</ion-header>
+
+<ion-content>
+
+  <ion-card class="account-info">
+    <ion-card-header>
+      <ion-card-title>{{this.fullname}}</ion-card-title>
+      <ion-card-subtitle>Your Account</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      <strong>{{this.account}}</strong>
+    </ion-card-content>
+  </ion-card>
+  <div class="card">
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-subtitle>Beneficiaries</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-list>
+          <ion-item>
+            <ion-thumbnail slot="start">
+              <img alt="EA" src="https://www.pngitem.com/pimgs/m/681-6816832_energy-australia-light-the-way-logo-hd-png.png" />
+            </ion-thumbnail>
+            <ion-label>Electricty</ion-label><p>21/3/23</p>
+            <ion-label color="success" slot="end" positon="outline">Paid</ion-label>
+          </ion-item>
+
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+</ion-content>

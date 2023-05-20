@@ -1,0 +1,73 @@
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+
+    <ion-title class="ion-text-center custom-font">SIGN UP</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+  <div class="ion-padding">
+
+    <form (submit)="onBtnSubmit()">
+      <ion-item lines="full">
+        <ion-label id="fullname" position="floating">Full Name</ion-label>
+        <ion-input type="text" [(ngModel)]="fullname" name="fullname" position="floating" aria-labelledby="fullname" required="true"></ion-input>
+      </ion-item>
+      <ion-item lines="full">
+        <ion-label id="email" position="floating">Email</ion-label>
+        <ion-input type="email" [(ngModel)]="email" name="email" aria-labelledby="email" required="true"></ion-input>
+      </ion-item>
+      <ion-item lines="full">
+        <ion-label id="pwd" position="floating">Password</ion-label>
+        <ion-input type="password" [(ngModel)]="password" name="password" aria-labelledby="pwd" required="true"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label id="bankAcc" position="floating">Bank Account Number</ion-label>
+        <ion-input type="text" [(ngModel)]="bankAccountNumber" aria-labelledby="bankAcc" required="true" pattern="^[0-9]{10}$" name="bankAccountNumber"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label id="bankName" position="floating">Bank Name</ion-label>
+   
+        <ion-select [(ngModel)]="bankName" name="bankName" aria-labelledby="bankName" >
+          <ion-select-option *ngFor="let bank of bankList" [value]="bank">{{bank}} </ion-select-option>
+        </ion-select>
+
+      </ion-item>
+
+      <ion-item>
+        <ion-label id="phone" position="floating">Phone Number</ion-label>
+        <ion-input type="tel" [(ngModel)]="phoneNumber" name="phoneNumber" required="true" pattern="^[0-9]{10}$" aria-labelledby ="phone"></ion-input>
+      </ion-item>
+
+   
+
+      <ion-item>
+        <div>
+          <input type="file" name="uploadedfile" [(ngModel)]="uploadedfile" accept=".jpg, .jpeg, .png" (change)="selectImage($event)">
+          <img [src]="imageUrl" *ngIf="imageUrl" alt="Selected Image">
+
+        </div>
+      </ion-item>
+
+      <ion-row>
+        <ion-col>
+          <ion-button type="submit" color="success" expand="block">Sign Up</ion-button>
+
+        </ion-col>
+      </ion-row>
+    </form>
+  </div>
+
+</ion-content>
+
+<ion-footer class="ion-no-border">
+  <ion-toolbar>
+    <p class="ion-text-center custom-font">Already have an account? <a [routerLink]="['/login']">Log In.</a></p>
+  </ion-toolbar>
+</ion-footer>
+

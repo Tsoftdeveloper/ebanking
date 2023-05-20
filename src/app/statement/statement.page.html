@@ -1,0 +1,73 @@
+
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button default-href="home"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <strong><ion-title size="large">Account Statement</ion-title></strong>
+</ion-header>
+
+<ion-content>
+
+  <ion-card class="account-info">
+    <ion-card-header>
+      <ion-card-title>{{this.fullname}}</ion-card-title>
+      <ion-card-subtitle>Your Account</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      <strong> {{this.iban}}</strong>
+    </ion-card-content>
+  </ion-card>
+  <div class="card">
+
+    <form (submit)="generate()">
+      <ion-card>
+        <ion-item>
+          <ion-label position="stacked">From Date </ion-label>
+          <ion-input fill="solid" type="date" name="start" [(ngModel)]="start"></ion-input>
+        </ion-item>
+
+      </ion-card>
+
+
+      <ion-card>
+        <ion-item>
+          <ion-label position="stacked">To Date </ion-label>
+          <ion-input fill="solid" type="date" name="end" [(ngModel)]="end"></ion-input>
+        </ion-item>
+
+      </ion-card>
+
+      <ion-button expand="block" color="tertiary" style="margin:20px;" type ="submit">Generate</ion-button>
+    </form>
+    <ion-card>
+      <ion-list>
+        <ion-item *ngIf="this.amount !== 0" style="visibility:{{this.display}}">
+          <ion-label>Funds Transfer   <p>{{this.lftId}}</p></ion-label>
+          <p style="color:red">-{{this.amount}}</p>
+        </ion-item>
+        <ion-item>
+          <ion-label>Funds Transfer</ion-label>
+          <p style="color:green">+60,000</p>
+        </ion-item>
+        <ion-item>
+          <ion-label>ATM-CashWithdrawal</ion-label>
+          <p style="color:red">-30,000</p>
+        </ion-item>
+        <ion-item>
+          <ion-label>Utlity Bill Payment</ion-label>
+          <p style="color:red">-5,000</p>
+        </ion-item>
+        <ion-item>
+          <ion-label>POS Machine </ion-label>
+          <p style="color:red">-25,000</p>
+        </ion-item>
+
+      </ion-list>
+    </ion-card>
+
+  </div>
+
+</ion-content>
